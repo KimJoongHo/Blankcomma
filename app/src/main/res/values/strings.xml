@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Blankcomma</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="titles">
+        <item>어린왕자</item>
+        <item>누가 내 치즈를 옮겼을까</item>
+        <item>Java의 정석</item>
+        <item>2015 SSat 대비</item>
+    </string-array>
+    <string-array name="memos">
+        <item>어린왕자 메모</item>
+        <item>내치즈를 옮겼을까 메모</item>
+        <item>javavvavavavav 메모</item>
+        <item>ssat는 ssat와 ssat하는 메모</item>
+    </string-array>
+    <string name="title_activity_add_note">AddNoteActivity</string>
+    <string name="title_activity_search_list">SearchListActivity</string>
+</resources>
