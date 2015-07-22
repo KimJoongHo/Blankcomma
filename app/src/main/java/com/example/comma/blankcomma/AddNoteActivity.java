@@ -1,15 +1,22 @@
 package com.example.comma.blankcomma;
 
+import android.content.Context;
 import android.content.Intent;
 import android.provider.MediaStore;
+import android.sax.RootElement;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ServiceConfigurationError;
@@ -20,6 +27,8 @@ public class AddNoteActivity extends ActionBarActivity {
     private Button addButton;
     private Button cancleButton;
     private PopupWindow popup;
+    private AutoCompleteTextView actv;
+    private RelativeLayout layout;
 
     public final static int BOOK_SEARCH_SERVICE = 3;
     @Override
@@ -31,6 +40,20 @@ public class AddNoteActivity extends ActionBarActivity {
 
         addButton.setOnClickListener(mClickListner);
         cancleButton.setOnClickListener(mClickListner);
+        actv = (AutoCompleteTextView)findViewById(R.id.blank_memo);
+     //   actv.setAdapter(new MyAdapter(this));
+
+        layout = (RelativeLayout)findViewById(R.id.new_layout);
+
+        //새로운 노트를 입력하는 부분 클릭
+        layout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(layout.getWindowToken(), 0);
+                return false;
+            }
+        });
     }
 
     Button.OnClickListener mClickListner = new View.OnClickListener() {
@@ -54,7 +77,7 @@ public class AddNoteActivity extends ActionBarActivity {
                         setResult(RESULT_OK);
                         finish();
                     }else{
-                       //책 제목이 널이 아니면 검색을 먼저 함
+                       //책 제목이 널이 아니면 제목데이터를 인텐트로 넘겨 검색을 먼저 함
                         Toast.makeText(AddNoteActivity.this, title, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(AddNoteActivity.this, SearchListActivity.class);
                         intent.putExtra("bookTitle", title);

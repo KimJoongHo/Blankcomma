@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="90dp">
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="COMMA"
+        android:textSize="45dp"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="70dp" />
+
+    <EditText
+        android:id="@+id/username"
+        android:hint="Email"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/logo"
+        android:drawableLeft="@drawable/email" />
+
+    <EditText
+        android:id="@+id/password"
+        android:hint="Password"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:inputType="textPassword"
+        android:drawableLeft="@drawable/password"/>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/password"
+        android:text="@string/LoginBtn"
+        android:layout_above="@+id/signup"
+        android:layout_below="@+id/logo" />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:text="@string/SignupBtn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="superpass"
+        android:id="@+id/login_admin"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/password"
+        android:layout_alignEnd="@+id/password" />
+
+</RelativeLayout>
