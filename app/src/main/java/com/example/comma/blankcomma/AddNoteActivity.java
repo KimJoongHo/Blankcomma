@@ -68,7 +68,7 @@ public class AddNoteActivity extends ActionBarActivity {
             switch (v.getId()) {
                 case R.id. btn_addok:
                     if(memo.getBytes().length <= 0){
-                        Toast.makeText(AddNoteActivity.this,"fill the memo", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddNoteActivity.this,"fill the memo!", Toast.LENGTH_SHORT).show();
                         break;
                     }
                     if(title.getBytes().length <= 0) {
