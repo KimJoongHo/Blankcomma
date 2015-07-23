@@ -52,8 +52,7 @@ public class MainFlowActivity extends ActionBarActivity
         Fragment myFragment = null;
         switch(position){
             case 0:
-           //     myFragment = new FirstFlow();
-                break;
+                myFragment = new FirstFlow();
         }
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();

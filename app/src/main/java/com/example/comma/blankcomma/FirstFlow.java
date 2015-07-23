@@ -1,12 +1,12 @@
 package com.example.comma.blankcomma;
 
-import android.app.Fragment;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,7 +23,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class FirstFlow extends ActionBarActivity {
+public class FirstFlow extends Fragment {
 
     private ListView list;
     private RelativeLayout layout;
@@ -31,14 +31,14 @@ public class FirstFlow extends ActionBarActivity {
 
     View myView;
 
-   /* @Nullable
+    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         myView = inflater.inflate(R.layout.activity_main, container, false);
         list = (ListView) myView.findViewById(R.id.listView);
-        list.setAdapter(new MyAdapter(this));
+        list.setAdapter(new MyAdapter(getActivity()));
 
-        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        LayoutInflater layoutInflater = (LayoutInflater) getActivity().getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(R.layout.sing_row,null);
 
         TextView title = (TextView)row.findViewById(R.id.text_title);
@@ -49,21 +49,22 @@ public class FirstFlow extends ActionBarActivity {
         memo.setText("새구절 입력");
         image.setImageResource(R.drawable.abc_ic_menu_copy_mtrl_am_alpha);
 
-        layout = (RelativeLayout)findViewById(R.id.new_note_layout);
+        layout = (RelativeLayout)myView.findViewById(R.id.new_note_layout);
 
         //새로운 노트를 입력하는 부분 클릭
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Toast.makeText(FirstFlow.this, "new memo activity", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(FirstFlow.this, AddNoteActivity.class);
+                Toast.makeText(getActivity(), "new memo activity", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), AddNoteActivity.class);
                  startActivityForResult(intent, NEW_NOTE);
                 return false;
             }
         });
 
         return myView;
-    }*/
+    }
+/*
 
    @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,11 +100,12 @@ public class FirstFlow extends ActionBarActivity {
 
 
     }
+*/
 
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
+        if (resultCode == Activity.RESULT_OK) {
             if (requestCode == NEW_NOTE) {
                 //추가된 데이터를 읽어와 리스트뷰 최상위에 출력
 

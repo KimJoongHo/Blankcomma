@@ -45,7 +45,8 @@ public class AddNoteActivity extends ActionBarActivity {
 
         layout = (RelativeLayout)findViewById(R.id.new_layout);
 
-        //새로운 노트를 입력하는 부분 클릭
+        //
+        // 새로운 노트를 입력하는 부분 클릭
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
